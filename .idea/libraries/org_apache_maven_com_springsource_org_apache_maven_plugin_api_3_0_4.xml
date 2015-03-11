@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="org.apache.maven:com.springsource.org.apache.maven.plugin-api:3.0.4" type="repository">
+    <properties maven-id="org.apache.maven:com.springsource.org.apache.maven.plugin-api:3.0.4" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/com.springsource.org.apache.maven.plugin-api-3.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/com.springsource.org.apache.tools.ant-1.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
