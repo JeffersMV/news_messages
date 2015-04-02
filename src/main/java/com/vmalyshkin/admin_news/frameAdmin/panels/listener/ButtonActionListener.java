@@ -20,20 +20,22 @@ public class ButtonActionListener implements ActionListener, ConnectionProvider 
 		String newNews = PanelNewNews.newNewsTextField.getText().trim();
 		if (!newNews.equals("")) {
 			NewsDao newsDao = new MySqlNewsDao(new MySqlConnectionProvider(HOST, USER, PASSWORD, NAME_DB));
-			newsDao.insert(newNews);
+			newsDao.addNews(newNews);
+			NewsDao newsDao2 = new MySqlNewsDao(new MySqlConnectionProvider(HOST, USER, PASSWORD, NAME_DB));
 			try {
-				for (String feed2 : newsDao.select()) {
-					PanelArchiveNews.appendArchiveNewsTextArea(feed2);
+				for (String news : newsDao2.listNews()) {
+					PanelArchiveNews.appendArchiveNewsTextArea(news);
 				}
 			} catch (SQLException e) {
-				System.out.println("ERROR in ButtonActionListener - \"for (String feed2 : newsDao.select()) {\"!!!");
+				System.out.println("ERROR in ButtonActionListener - \"for (String feed2 : newsDao.listNews()) {\"!!!");
 			}
-			System.out.println(newsDao.selectLastInsert());/////////////////////////
+//			System.out.println(newsDao.getLastNote());/////////////////////////убрать потом
+			NewsDao newsDao3 = new MySqlNewsDao(new MySqlConnectionProvider(HOST, USER, PASSWORD, NAME_DB));
 			if (ae.getSource() == PanelButtonNews.publish) {
-				new ThreadsSocket(newsDao.selectLastInsert());
+				String str = newsDao3.getLastNote();
+				new ThreadsSocket(str);
 			}
 			PanelNewNews.newNewsTextField.setText(null);
-			newsDao.close_DB();
 		} else {
 			System.out.println("Внимание newNewsTextField равен null! Введите сообщение!");
 		}

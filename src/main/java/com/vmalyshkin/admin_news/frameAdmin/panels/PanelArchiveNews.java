@@ -61,13 +61,12 @@ public class PanelArchiveNews extends JPanel implements ConnectionProvider {
 	private void fillingArchiveNewsTextArea() {
 		NewsDao newsDao = new MySqlNewsDao(new MySqlConnectionProvider(HOST, USER, PASSWORD, NAME_DB));
 		try {
-			for (String archiveNews : newsDao.select()) {
+			for (String archiveNews : newsDao.listNews()) {
 				appendArchiveNewsTextArea(archiveNews);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR PanelArchiveNews - \"for (String archiveNews : newsDao.select()) {\"");
+			System.out.println("ERROR PanelArchiveNews - \"for (String archiveNews : newsDao.listNews()) {\"");
 		}
-		newsDao.close_DB();
 	}
 
 	public static void appendArchiveNewsTextArea(String archiveNews) {

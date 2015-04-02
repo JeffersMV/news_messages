@@ -59,7 +59,7 @@ public class ClientNews {
 					NewsPanel.appendNewsTextArea(s + "\n\n");
 					System.out.println(s);
 					try {
-						Thread.sleep(2000);
+						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						System.out.println("ERROR ClientNews - \"Thread.sleep(2000);\"");
 					}

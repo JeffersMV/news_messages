@@ -4,13 +4,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface NewsDao {
-	public void insert(String insert);
+	void addNews(String insert);
 
-	public List<String> select() throws SQLException;
+	List<String> listNews() throws SQLException;
 
-	public String selectLastInsert();
+	String getLastNote();
 
-	public void close_DB();
-
-	public java.sql.Timestamp getCurrentDate();
+	java.sql.Timestamp getCurrentDate();
 }
