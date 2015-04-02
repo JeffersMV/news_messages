@@ -1,5 +1,6 @@
 # news_messages
 Использовались технологии: Java, Maven, Swing, JDBC, MySQL
+Разрабатывалась на Intellij Idea 14.1, SDK 1.7.0_76
 news_messages - примитивная система широковещательной рассылки новостных
 сообщений в сети.
 
